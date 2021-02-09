@@ -1,0 +1,11 @@
+<p>You searched for: <strong>{{ id }}</strong></p>
+
+{% for i in temp %}
+	<p>
+		<p>Name:{{i.name}}</p> 
+		<p>caption:{{i.caption}}</p>
+		<p><img src={{i.url}} width="300" height="400"></p>
+	</p>
+{% empty %}
+    <li>Sorry, no memes with given id.</li>
+{% endfor %}

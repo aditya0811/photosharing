@@ -1,0 +1,31 @@
+<h3>YO</h3>
+
+
+<form method="POST" action=''>
+	{% csrf_token %}
+	<!-- Here from.content will only ask input for content -->
+	{{ form }}
+	<input type="submit" name="Create Meme">
+</form>
+
+{% for i in memes %}
+	<p>
+		<p>Name:{{i.name}}</p> 
+		<p>caption:{{i.caption}}</p> 
+		<p>{{i.id}}</p>
+		<!-- <a href="ed/" onclick= " location.href=this.href +  ; return false; " > edit</a> -->
+		<!-- <a href="ed/{{i.id}}">Edit</a> -->
+		<p><img src= {{i.url}} width="300" height="400"></p>
+	</p>
+{% empty %}
+    <li>Sorry, no memes right now.</li>
+{% endfor %}
+<!-- var putData = { 'id': '51', 'description': "new desc" }
+$.ajax({
+    url: 'e/' + id + '/',
+    type: "PATCH",
+    data: putData,
+    success: function(data, textStatus, jqXHR) {
+        // ....
+    }
+} -->

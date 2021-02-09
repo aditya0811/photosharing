@@ -1,0 +1,67 @@
+<!-- {{id}} -->
+
+<!-- var putData = { 'id': '51', 'description': "new desc" }
+$.ajax({
+    url: '/en/hours/api/edit/' + id + '/',
+    type: "PATCH",
+    data: putData,
+    success: function(data, textStatus, jqXHR) {
+        // ....
+    }
+}
+ -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    
+    <label for="caption">caption: &nbsp;</label>
+    <input type="text" class="form-control" id="caption">
+    <label for="url">url: &nbsp;</label>
+    <input type="text" class="form-control" id="url">
+    <button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
+    <script type="text/javascript">
+    	$(document).ready(function () {
+            BindStudents();
+        });
+
+        $('#btnSubmit').click(function () {
+            let url = $('#txturl').val();
+            let caption = $('#txtcaption').val();
+
+            $.ajax({
+                type: 'PATCH',
+                dataType: 'json',
+                data: {
+                    "url": url,
+                    "caption": caption
+                },
+
+                url: 'ed/' + id + '/',,
+                error: function (xhr, status, error) {
+
+                    var err_msg = ''
+                    for (var prop in xhr.responseJSON) {
+                        err_msg += prop + ': ' + xhr.responseJSON[prop] + '\n';
+                    }
+
+                    alert(err_msg);
+                },
+                success: function (result) {
+                 
+                    BindStudents();
+                    alert('Data Saved Successfully.');
+
+                    $('#txturl').val("");
+                    $('#txtcaption').val("");
+                }
+            });
+        });
+    </script>
+</head>
